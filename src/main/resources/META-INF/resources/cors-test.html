@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cors Test</title>
+    <script type="application/javascript">
+        //Try calling that page using the URL (when using Intelijj IDEA): http://localhost:63342/quarkus-web/META-INF/resources/cors-test.html
+        //After that the IDE will ask if you want to copy the URL, you click "Yes" and paste in the browser
+        //For example: http://localhost:63342/quarkus-web/META-INF/resources/cors-test.html?_ijt=7hj9i524e4jgrjq3dddsngj5t7
+        var request = new XMLHttpRequest();
+        request.open('GET', 'http://127.0.0.1:8080/api/cors', true);
+        request.send();
+        console.log(request.responseText);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

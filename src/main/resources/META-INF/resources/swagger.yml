@@ -1,0 +1,80 @@
+---
+openapi: 3.0.1
+info:
+  title: Quarkus Web Study API
+  description: This API has simple examples of the Quarkus Framework used for web
+    applications
+  version: "1.0"
+servers:
+- url: localhost
+paths:
+  /crypto:
+    get:
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionCurrency'
+  /crypto/async:
+    get:
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CollectionCurrency'
+  /echo:
+    post:
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  /echo/test:
+    post:
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+components:
+  schemas:
+    Currency:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        price_btc:
+          type: string
+        price_usd:
+          type: string
+        symbol:
+          type: string
+    CollectionCurrency:
+      type: array
+      items:
+        $ref: '#/components/schemas/Currency'
